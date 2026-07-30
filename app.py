@@ -4,13 +4,11 @@ Browser-Nutzung — Streamlit App
 Web-Oberfläche für Browser-Use Demo: URL analysieren, Screenshots, Elemente extrahieren.
 """
 
-import streamlit as st
-import pandas as pd
-import json
-import os
-import hashlib
 from datetime import datetime
-from typing import List, Dict, Optional
+from typing import List
+
+import pandas as pd
+import streamlit as st
 
 # ──────────────────────────────────────────────────────────────
 # Konfiguration
@@ -55,7 +53,7 @@ def generate_elements(url: str) -> List[dict]:
         {"Typ": "Bild", "Inhalt": f"https://{domain}/logo.png", "Selektor": "img.logo"},
         {"Typ": "Button", "Inhalt": "Jetzt kaufen", "Selektor": "button.cta"},
         {"Typ": "Eingabefeld", "Inhalt": "placeholder: Suche...", "Selektor": "input.search"},
-        {"Typ": "Liste", "Inhalt": f"3 Einträge gefunden", "Selektor": "ul.results"},
+        {"Typ": "Liste", "Inhalt": "3 Einträge gefunden", "Selektor": "ul.results"},
         {"Typ": "Formular", "Inhalt": "Kontaktformular", "Selektor": "form#contact"},
     ]
     
@@ -191,7 +189,7 @@ with tab1:
             "browser": "Chromium (headless)",
             "version": "120.0.6099.109",
             "viewport": f"{viewport_width}x{viewport_height}",
-            "user_agent": f"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "javascript_enabled": True,
             "cookies_enabled": True,
         })
